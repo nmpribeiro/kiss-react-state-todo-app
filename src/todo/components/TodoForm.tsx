@@ -13,8 +13,8 @@ export const TodoForm: FC<Props> = ({ addTodo }) => {
   };
 
   return (
-    <div>
-      <input ref={inputRef} />
+    <div className="form-control col-md-10">
+      <input ref={inputRef} style={{ marginRight: 10 }} />
       <button onClick={onClickHandler}>+</button>
     </div>
   );

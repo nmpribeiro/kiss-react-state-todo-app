@@ -9,7 +9,10 @@ interface TodoProps {
 }
 
 const Todo: FC<TodoProps> = ({ todo, remove }) => (
-  <li onClick={() => remove(todo.id)}>{todo.text}</li>
+  // eslint-disable-next-line jsx-a11y/anchor-is-valid
+  <a href="#" className="list-group-item" onClick={() => remove(todo.id)}>
+    {todo.text}
+  </a>
 );
 
 interface TodoListProps {
@@ -18,9 +21,9 @@ interface TodoListProps {
 }
 
 export const TodoList: FC<TodoListProps> = ({ todos, remove }) => (
-  <ul>
+  <div className="list-group" style={{ marginTop: 30 }}>
     {todos.map((todo) => (
       <Todo todo={todo} key={todo.id} remove={remove} />
     ))}
-  </ul>
+  </div>
 );
